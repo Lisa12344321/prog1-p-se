@@ -2,7 +2,7 @@ run = True
 
 antal = 0
 
-bag = ["godis", "kebab", "burgare"]
+bag = []
 
 while run:
 
