@@ -3,22 +3,23 @@ import tkinter
 inventory = []
 
 main = tkinter.Tk()
-main.geometry("600x500")
+#main.geometry("600x500")
 main.title("Påsen")
-
+main.configure(bg="lightgrey")
 
 
 
 label = tkinter.Label(main, text= "Välkommen till påsen!")
 label.grid(row=0, columnspan=2)
+label.config(bg="lightgrey")
 
 text_box = tkinter.Text(main, height=10)
-text_box.grid(row=1, columnspan=2)
+text_box.grid(row=1, columnspan=2, padx=10, pady=10)
 
 
 #add
 input_text_add = tkinter.Entry(main)
-input_text_add.grid(row=2, column=0, sticky=tkinter.W)
+input_text_add.grid(row=2, column=0, sticky=tkinter.W, pady=5, padx=10)
 
 def add_to_bag(event=None):
     inventory.append(input_text_add.get())
@@ -31,25 +32,28 @@ def log():
 
 
 add_button = tkinter.Button(main,text="Spara i påsen", command=add_to_bag)
-add_button.grid(row=2, column=0,)
+add_button.grid(row=2, column=0, pady = 5, padx=10)
+add_button.config(bg="lightgrey") 
 
 
 #remove
 input_text_remove = tkinter.Entry(main)
-input_text_remove.grid(row=2,  column=1, sticky=tkinter.W)
+input_text_remove.grid(row=2,  column=1, padx=10, pady=5)
 
 def remove_from_bag(event=None):
     inventory.remove(input_text_remove.get())
     log()
 
 
-remove_button = tkinter.Button(main,text="Ta bort", command=remove_from_bag)
-remove_button.grid(row=2,  column=1)
+remove_button = tkinter.Button(main,text="Ta bort från påsen", command=remove_from_bag)
+remove_button.grid(row=2,  column=1, pady = 5, padx=10, sticky=tkinter.E)
+remove_button.config(bg="lightgrey") 
 
 
 
 exit_button = tkinter.Button(main, text="Avsluta", command=quit)
-exit_button.grid(row=2,  column=1, sticky=tkinter.E)
+exit_button.grid(row=2, columnspan=2, pady = 5, padx=10)
+exit_button.config(bg="lightgrey") 
 
 
 main.mainloop()
